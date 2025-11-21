@@ -27,7 +27,6 @@ class ViewBook extends ViewRecord
                 Infolists\Components\Section::make('Book Details')
                     ->schema([
                         Infolists\Components\ImageEntry::make('cover')
-                            ->disk('public')
                             ->height(200)
                             ->defaultImageUrl(url('/images/default-book-cover.png')),
                         
@@ -48,14 +47,6 @@ class ViewBook extends ViewRecord
                         Infolists\Components\TextEntry::make('publisher'),
                         
                         Infolists\Components\TextEntry::make('year'),
-
-                        Infolists\Components\TextEntry::make('pdf_file')
-                            ->label('PDF File')
-                            ->formatStateUsing(fn ($state) => $state ? '✓ Available' : '✗ Not uploaded')
-                            ->badge()
-                            ->color(fn ($state) => $state ? 'success' : 'gray')
-                            ->url(fn ($record) => $record->pdf_file ? asset('storage/' . $record->pdf_file) : null)
-                            ->openUrlInNewTab(),
 
                         Infolists\Components\TextEntry::make('categories.name')
                             ->label('Categories')

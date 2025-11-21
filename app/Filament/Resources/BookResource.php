@@ -82,31 +82,18 @@ class BookResource extends Resource
                     ])
                     ->columns(2),
                 
-                Forms\Components\Section::make('File Uploads')
+                Forms\Components\Section::make('Cover Image')
                     ->schema([
                         Forms\Components\FileUpload::make('cover')
-                            ->label('Cover Image (Required)')
                             ->image()
                             ->directory('book-covers')
                             ->visibility('public')
                             ->imageEditor()
                             ->maxSize(2048)
-                            ->required()
                             ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
                             ->helperText('Maximum file size: 2MB. Accepted formats: JPEG, PNG, WebP'),
-                        
-                        Forms\Components\FileUpload::make('pdf_file')
-                            ->label('PDF File (Optional)')
-                            ->directory('book-pdfs')
-                            ->visibility('public')
-                            ->maxSize(10240)
-                            ->acceptedFileTypes(['application/pdf'])
-                            ->helperText('Maximum file size: 10MB. Upload the full book in PDF format (optional)')
-                            ->downloadable()
-                            ->openable(),
-                    ])
-                    ->columns(2),
-                ]);
+                    ]),
+            ]);
     }
 
     public static function table(Table $table): Table
@@ -144,17 +131,6 @@ class BookResource extends Resource
                 Tables\Columns\TextColumn::make('year')
                     ->sortable()
                     ->alignCenter(),
-                
-                Tables\Columns\IconColumn::make('pdf_file')
-                    ->label('PDF')
-                    ->boolean()
-                    ->trueIcon('heroicon-o-document-text')
-                    ->falseIcon('heroicon-o-x-circle')
-                    ->trueColor('success')
-                    ->falseColor('gray')
-                    ->alignCenter()
-                    ->tooltip(fn ($state) => $state ? 'PDF available' : 'No PDF'),
-
                 
                 Tables\Columns\TextColumn::make('categories.name')
                     ->label('Categories')

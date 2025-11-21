@@ -18,7 +18,6 @@ class Book extends Model
         'publisher',
         'year',
         'cover',
-        'pdf_file',
         'status',
     ];
 
