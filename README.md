@@ -1,28 +1,45 @@
-# Laporan Pertemuan 8
+# Laporan Pertemuan 9
 
 Muhammad Zaidan Ahbab 4523210081
 
-## Tugas 1
+## Tugas 2
 
-Tugas 1: Implementasi Dasar (Nilai: 40)
+Tugas 2: Kustomisasi dan Pengembangan (Nilai: 40)
 
-Implementasikan semua langkah di atas dan buktikan dengan:
+Tambahkan fitur-fitur berikut:
 
-✅ Screenshot admin panel yang berhasil login
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/d290c470-433f-4c6e-91c7-3e2ed2008468" />
+✅ Tambah Field Description pada Book (10 poin)
+- Migration : tambah kolom description (text)
+- Model : tambah ke `$fillable`
+- Resource : tambah Textarea component di form
+- Factory : generate description dengan fake()->paragraph()
 
-
-✅ Screenshot list books dengan data yang terseed
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/67a9d3d5-9766-4c9c-be49-4a7943608a0d" />
-
-
-✅ Screenshot form create book
-<img width="1917" height="1078" alt="image" src="https://github.com/user-attachments/assets/5d48a10d-dd68-4082-bf70-76196919f18d" />
+  <img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/89e6f582-3339-49db-8801-d703111cc397" />
 
 
-✅ Screenshot hasil pencarian
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/a438b83f-d705-4093-a4c8-2e2ba97c8130" />
+✅ Implementasi Role-Based Access (15 poin)
+- Tambah kolom role pada tabel users
+- Buat seeder untuk user dengan role berbeda (admin, staff, viewer)
+- Update BookPolicy:
+   - Admin: semua akses
+   - Staff: bisa create, edit, view (tidak bisa delete)
+   - Viewer: hanya bisa view
+
+     <img width="1440" height="2838" alt="code" src="https://github.com/user-attachments/assets/c6268377-5d0e-4b78-b52f-502ff7725c42" />
 
 
-✅ Screenshot filter aktif
-<img width="1915" height="1077" alt="image" src="https://github.com/user-attachments/assets/fd0bf2eb-94b5-4bd7-b638-96bd39981266" />
+✅ Tambah Widget Dashboard (10 poin)
+- Buat widget untuk menampilkan:
+   - Total books
+   - Total authors
+   - Books available vs borrowed (chart/stats)
+
+     <img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/50043742-c20d-4dd2-a009-6bb4b68b970b" />
+
+
+✅ Tambah Kategori Buku (5 poin)
+- Buat model Category
+- Relasi many-to-many dengan Book
+- Tambah di form book (multiple select)
+
+  <img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/96268806-fda3-42f9-8dc2-f20bc285fb99" />
